@@ -92,6 +92,21 @@ RSpec.describe QuizzesController, type: :controller do
       end
     end
 
+    describe "quizzes#results" do
+      before :each do
+        user.stub(:quizzes).and_return([quiz])
+        get :results
+      end
+
+      it "assigns all current user quizzes to @quizzes" do
+        expect(assigns(:quizzes)).to match_array [quiz]
+      end
+
+      it "render the :results template" do
+        expect(response).to render_template :results
+      end
+    end
+
   end
 end
 

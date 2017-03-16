@@ -15,4 +15,24 @@ RSpec.describe Quiz, type: :model do
       it { expect(Quiz::RESULT).to eq(%w{ CORRECT INCORRECT }) }
     end
   end
+
+  context "instance methods" do
+    describe "result" do
+      let(:quiz_1) { build_stubbed :quiz }
+      let(:quiz_2) { build_stubbed :quiz, answer: "twenty six" }
+      let(:quiz_3) { build_stubbed :quiz, answer: "25" }
+      let(:quiz_4) { build_stubbed :quiz, answer: "twenty five" }
+
+      it "returns correct result" do
+        expect(quiz_1.result).to eq(Quiz::RESULT[0])
+        expect(quiz_2.result).to eq(Quiz::RESULT[0])
+      end
+
+      it "returns incorrect result" do
+        expect(quiz_3.result).to eq(Quiz::RESULT[1])
+        expect(quiz_4.result).to eq(Quiz::RESULT[1])
+      end
+    end
+  end
+
 end
