@@ -1,0 +1,5 @@
+- @questions.each do |question|
+  tr
+    td= simple_format question.content
+    td.actions
+      a href="#{new_quiz_path(question_id: question.id)}" class="btn btn-primary btn-xs" Answer

@@ -16,6 +16,8 @@ html
 
           .navbar-collapse.collapse
             ul.nav.navbar-nav.navbar-right
+              li= link_to "Questions", root_path
+              li= link_to "Test Results", results_quizzes_path
               li.dropdown
                 a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                   = current_user.full_name

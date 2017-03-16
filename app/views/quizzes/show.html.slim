@@ -1,0 +1,22 @@
+- content_for :content do
+  .page-header
+    .header-left
+      h3 Quiz Result
+
+  .row
+    .col-md-12
+      .table-responsive
+        table.table
+          thead
+            tr
+              th Question
+              th Actual Answer
+              th Your Answer
+              th Result
+          tbody
+            tr
+              td= simple_format @quiz.question.try(:content)
+              td= @quiz.question.try(:answer)
+              td= @quiz.answer
+              td= @quiz.result
+ 

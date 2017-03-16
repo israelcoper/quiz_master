@@ -1,0 +1,10 @@
+- content_for :content do
+  .page-header
+    .header-left
+      h3 Quiz
+
+  .row
+    .col-md-12
+      = form_for @quiz, url: quizzes_path(@quiz), html: { id: "form-quiz", class: "form-horizontal" } do |f|
+        = render partial: "form", locals: { f: f }
+

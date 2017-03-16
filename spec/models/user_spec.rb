@@ -40,6 +40,10 @@ RSpec.describe User, type: :model do
     end
   end
 
+  context "associations" do
+    it { should have_many :quizzes }
+  end
+
   context "instance methods" do
     describe "full_name" do
       let(:user) { build(:user, first_name: "John", last_name: "Smith") }

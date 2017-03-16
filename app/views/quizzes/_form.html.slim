@@ -1,0 +1,27 @@
+- if @quiz.errors.any?
+  #error_explanation
+    h5
+      = pluralize(@quiz.errors.count, "error")
+      | &nbsp;
+      | prohibited this quiz from being saved:
+    ul
+      - @quiz.errors.full_messages.each do |message|
+        li= message
+
+.form-group
+  label.col-sm-2.control-label Question
+  .col-sm-10= question_content(params[:question_id])
+
+.form-group
+  label.col-sm-2.control-label Answer
+  .col-sm-10= f.text_field :answer, class: "form-control"
+
+.form-group
+  = f.hidden_field :question_id, value: params[:question_id]
+
+.form-group
+  .col-sm-10.col-sm-offset-2
+    = link_to "Back", root_path, class: "btn btn-default"
+    | &nbsp;
+    = f.submit "Save", class: "btn btn-primary"
+

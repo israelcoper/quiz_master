@@ -107,6 +107,8 @@ GEM
     nio4r (2.0.0)
     nokogiri (1.7.0.1)
       mini_portile2 (~> 2.1.0)
+    numbers_in_words (0.4.0)
+      activesupport
     pg (0.20.0)
     public_suffix (2.0.4)
     puma (3.8.2)
@@ -239,6 +241,7 @@ DEPENDENCIES
   jquery-rails
   jquery-turbolinks
   listen (~> 3.0.5)
+  numbers_in_words
   pg (~> 0.18)
   puma (~> 3.0)
   rails (~> 5.0.0)

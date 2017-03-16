@@ -1,7 +1,7 @@
 - content_for :content do
   .page-header
     .header-left
-      h3 Questions
+      h3 Test Results
 
   .row
     .col-md-12
@@ -10,7 +10,9 @@
           thead
             tr
               th Question
-              th.actions Actions
+              th Actual answer
+              th Your answer
+              th Result
           tbody
-            = render partial: "question"
+            = render @quizzes
 
