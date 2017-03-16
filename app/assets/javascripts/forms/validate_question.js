@@ -8,16 +8,17 @@ forms.validate_question = (function() {
       if ( $form.length ) {
         $form.bootstrapValidator({
           framework: 'bootstrap',
-          icon: {
-            valid: 'glyphicon glyphicon-ok',
-            invalid: 'glyphicon glyphicon-remove',
-            validating: 'glyphicon glyphicon-refresh'
-          },
+          excluded: [':disabled'],
           fields: {
             'question[content]': {
               validators: {
-                notEmpty: {
-                  message: 'The question content is required'
+                callback: {
+                  message: 'The question content must be atleast 10 characters long',
+                  callback: function(value,validator,$field) {
+                    // Get the plain text without HTML
+                    var text = tinyMCE.activeEditor.getContent({ format: 'text' });
+                    return text.length >= 10;
+                  } 
                 }
               }
             },

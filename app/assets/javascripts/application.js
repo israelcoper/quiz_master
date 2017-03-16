@@ -16,6 +16,7 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require bootstrapValidator.min
+//= require tinymce-jquery
 //= require_tree ./forms
 //= require_tree .
 

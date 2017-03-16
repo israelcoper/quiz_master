@@ -10,7 +10,8 @@
 
 .form-group
   label.col-sm-2.control-label Content
-  .col-sm-10= f.text_area :content, class: "form-control"
+  .col-sm-10
+    = f.text_area :content, class: "form-control tinymce", rows: 10
 
 .form-group
   label.col-sm-2.control-label Answer

@@ -1,5 +1,5 @@
 tr
-  td= question.content
+  td= simple_format question.content
   td= question.answer
   td.actions
     a href="#{edit_question_path(question)}" class="btn btn-primary btn-xs"
