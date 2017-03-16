@@ -1,0 +1,21 @@
+- if @question.errors.any?
+  #error_explanation
+    h5
+      = pluralize(@question.errors.count, "error")
+      | &nbsp;
+      | prohibited this question from being saved:
+    ul
+      - @question.errors.full_messages.each do |message|
+        li= message
+
+div
+  label Content
+  div= f.text_area :content
+
+div
+  label Answer
+  div= f.text_field :answer
+
+div
+  = f.submit
+
