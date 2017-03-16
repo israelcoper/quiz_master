@@ -1,11 +1,19 @@
-div
-  = link_to "Add question", new_question_path
-div
-  table
-    thead
-      tr
-        th Question
-        th Answer
-        th Actions
-    tbody
-      = render @questions
+- content_for :content do
+  .page-header
+    .header-left
+      h3 Questions
+    .header-right.pull-right
+      = link_to "Add question", new_question_path, class: "btn btn-default"
+
+  .row
+    .col-md-12
+      .table-responsive
+        table.table
+          thead
+            tr
+              th Question
+              th Answer
+              th.actions Actions
+          tbody
+            = render @questions
+

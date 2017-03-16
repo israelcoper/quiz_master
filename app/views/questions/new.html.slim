@@ -1,4 +1,10 @@
-div
-  = form_for @question do |f|
-    = render partial: "form", locals: { f: f }
+- content_for :content do
+  .page-header
+    .header-left
+      h3 New question
+
+  .row
+    .col-md-12
+      = form_for @question, html: { class: "form-horizontal" } do |f|
+        = render partial: "form", locals: { f: f }
 

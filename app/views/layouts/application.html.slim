@@ -1,0 +1,35 @@
+doctype html
+html
+  head
+    title QuizMaster
+    = csrf_meta_tags
+
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+
+  body
+    .main-container
+      .navbar.navbar-default
+        .container-fluid
+          .navbar-header
+            a.navbar-brand href="#" Quiz Master
+
+          .navbar-collapse.collapse
+            ul.nav.navbar-nav.navbar-right
+              li.dropdown
+                a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                  | John Smith
+                  | &nbsp;
+                  span.caret
+                ul.dropdown-menu
+                  li
+                    a href="#"
+                      | Signout
+                      | &nbsp;
+                      span.glyphicon.glyphicon-off.pull-right
+
+      .container-fluid
+        .row
+          .col-md-12
+            = content_for?(:content) ? yield(:content) : yield
+

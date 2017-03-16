@@ -8,14 +8,17 @@
       - @question.errors.full_messages.each do |message|
         li= message
 
-div
-  label Content
-  div= f.text_area :content
+.form-group
+  label.col-sm-2.control-label Content
+  .col-sm-10= f.text_area :content, class: "form-control"
 
-div
-  label Answer
-  div= f.text_field :answer
+.form-group
+  label.col-sm-2.control-label Answer
+  .col-sm-10= f.text_field :answer, class: "form-control"
 
-div
-  = f.submit
+.form-group
+  .col-sm-10.col-sm-offset-2
+    = link_to "Cancel", questions_path, class: "btn btn-default"
+    | &nbsp;
+    = f.submit "Save", class: "btn btn-primary"
 
