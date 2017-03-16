@@ -12,7 +12,7 @@ html
       .navbar.navbar-default
         .container-fluid
           .navbar-header
-            a.navbar-brand href="#{admin_questions_path}" Quiz Master
+            a.navbar-brand href="#{root_path}" Quiz Master
 
           .navbar-collapse.collapse
             ul.nav.navbar-nav.navbar-right
@@ -23,7 +23,7 @@ html
                   span.caret
                 ul.dropdown-menu
                   li
-                    a href="#{admin_session_path(current_user.id)}" data-method="delete"
+                    a href="#{session_path(current_user.id)}" data-method="delete"
                       | Signout
                       | &nbsp;
                       span.glyphicon.glyphicon-off.pull-right

@@ -39,4 +39,13 @@ RSpec.describe User, type: :model do
       end
     end
   end
+
+  context "instance methods" do
+    describe "full_name" do
+      let(:user) { build(:user, first_name: "John", last_name: "Smith") }
+      it "returns full name" do
+        expect(user.full_name).to eql "John Smith"
+      end
+    end
+  end
 end
