@@ -5,6 +5,6 @@
 
   .row
     .col-md-12
-      = form_for @question, html: { id: "form-question", class: "form-horizontal" } do |f|
+      = form_for @question, url: admin_questions_path(@question), html: { id: "form-question", class: "form-horizontal" } do |f|
         = render partial: "form", locals: { f: f }
 

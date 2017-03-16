@@ -1,5 +1,8 @@
-class QuestionsController < ApplicationController
+class Admin::QuestionsController < ApplicationController
+  before_action :authenticate_admin
   before_action :find_question, only: [:show, :edit, :update, :destroy]
+
+  layout "admin"
 
   def index
     @questions = Question.all
@@ -15,7 +18,7 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(question_params)
     if @question.save
-      redirect_to questions_path, notice: "Question created successfully!"
+      redirect_to admin_questions_path, notice: "Question created successfully!"
     else
       render :new
     end
@@ -26,7 +29,7 @@ class QuestionsController < ApplicationController
 
   def update
     if @question.update(question_params)
-      redirect_to questions_path, notice: "Question updated succesfully!"
+      redirect_to admin_questions_path, notice: "Question updated succesfully!"
     else
       render :edit
     end
@@ -34,7 +37,7 @@ class QuestionsController < ApplicationController
 
   def destroy
     @question.destroy
-    redirect_to questions_path, notice: "Question destroyed successfully!"
+    redirect_to admin_questions_path, notice: "Question destroyed successfully!"
   end
 
   protected

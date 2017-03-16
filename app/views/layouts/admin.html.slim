@@ -23,7 +23,7 @@ html
                   span.caret
                 ul.dropdown-menu
                   li
-                    a href="#"
+                    a href="#{admin_session_path(current_user.id)}" data-method="delete"
                       | Signout
                       | &nbsp;
                       span.glyphicon.glyphicon-off.pull-right

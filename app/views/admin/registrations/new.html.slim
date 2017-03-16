@@ -1,0 +1,41 @@
+.row
+  .col-md-12
+    .page-header style="text-align:center;"
+      h3 Admin Registration
+
+.row
+  .col-md-12
+    = form_for @user, url: admin_registrations_path(@user), html: { id: "form-signup", class: "form-horizontal" } do |f|
+      .form-group
+        label.col-sm-3.control-label First name
+        .col-sm-9
+          = f.text_field :first_name, class: "form-control", placeholder: "First name"
+
+      .form-group
+        label.col-sm-3.control-label Last name
+        .col-sm-9
+          = f.text_field :last_name, class: "form-control", placeholder: "Last name"
+
+      .form-group
+        label.col-sm-3.control-label Email
+        .col-sm-9
+          = f.text_field :email, class: "form-control", placeholder: "Email"
+
+      .form-group
+        label.col-sm-3.control-label Password
+        .col-sm-9
+          = f.password_field :password, class: "form-control", placeholder: "Password"
+
+      .form-group
+        label.col-sm-3.control-label Password confirmation
+        .col-sm-9
+          = f.password_field :password_confirmation, class: "form-control", placeholder: "Password confirmation"
+
+      .form-group
+        .col-sm-10.col-sm-offset-2
+          = f.submit "Signup", class: "btn btn-primary pull-right"
+
+    .col-md-12
+      .signin-link
+        = link_to "Signin as admin", "#{new_admin_session_path}"
+

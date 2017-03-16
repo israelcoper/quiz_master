@@ -1,0 +1,9 @@
+tr
+  td= simple_format question.content
+  td= question.answer
+  td.actions
+    a href="#{edit_admin_question_path(question)}" class="btn btn-primary btn-xs"
+      i.fa.fa-pencil
+    | &nbsp;
+    a href="#{admin_question_path(question)}" class="btn btn-danger btn-xs" data-method="delete" data-confirm="Are you sure?"
+      i.fa.fa-trash-o

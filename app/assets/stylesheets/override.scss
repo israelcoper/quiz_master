@@ -22,4 +22,16 @@ body .main-container {
   }
 }
 
+body.signup, body.signin {
+  padding-top: 100px;
 
+  .signup-form, .signin-form {
+    margin: 0 auto;
+    width: 500px;
+
+    .signup-link, .signin-link {
+      text-align: center;
+      border-top: 1px solid #EEEEEE;
+    }
+  }
+}

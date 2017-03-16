@@ -1,0 +1,26 @@
+.row
+  .col-md-12
+    .page-header style="text-align:center;"
+      h3 Admin Signin
+
+.row
+  .col-md-12
+    = form_tag admin_sessions_path, id: "form-signin", class: "form-horizontal" do
+      .form-group
+        label.col-sm-3.control-label Email
+        .col-sm-9
+          = text_field_tag :email, params[:email], class: "form-control", placeholder: "Email"
+
+      .form-group
+        label.col-sm-3.control-label Password
+        .col-sm-9
+          = password_field_tag :password, params[:password], class: "form-control", placeholder: "Password"
+
+      .form-group
+        .col-sm-10.col-sm-offset-2
+          = submit_tag "Signin", class: "btn btn-primary pull-right"
+
+    .col-md-12
+      .signup-link
+        = link_to "Register as admin", "#{new_admin_registration_path}"
+
