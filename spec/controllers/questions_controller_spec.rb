@@ -159,4 +159,54 @@ RSpec.describe Admin::QuestionsController, type: :controller do
     end
   end
 
+  context "unauthorized access" do
+    describe "questions#index" do
+      it "requires login" do
+        get :index
+        expect(response).to redirect_to new_admin_session_path
+      end
+    end
+
+    describe "questions#show" do
+      it "requires login" do
+        get :show, params: { id: question.id }
+        expect(response).to redirect_to new_admin_session_path
+      end
+    end
+
+    describe "questions#new" do
+      it "requires login" do
+        get :new
+        expect(response).to redirect_to new_admin_session_path
+      end
+    end
+
+    describe "questions#edit" do
+      it "requires login" do
+        get :edit, params: { id: question.id } 
+        expect(response).to redirect_to new_admin_session_path
+      end
+    end
+
+    describe "questions#create" do
+      it "requires login" do
+        post :create, params: { question: valid_attributes }
+        expect(response).to redirect_to new_admin_session_path
+      end
+    end
+
+    describe "questions#update" do
+      it "requires login" do
+        put :update, params: { id: question.id, question: valid_attributes }
+        expect(response).to redirect_to new_admin_session_path
+      end
+    end
+
+    describe "questions#destroy" do
+      it "requires login" do
+        delete :destroy, params: { id: question.id }
+        expect(response).to redirect_to new_admin_session_path
+      end
+    end
+  end
 end

@@ -106,7 +106,43 @@ RSpec.describe QuizzesController, type: :controller do
         expect(response).to render_template :results
       end
     end
+  end
 
+  context "unauthorized access" do
+    describe "quizzes#index" do
+      it "requires login" do
+        get :index
+        expect(response).to redirect_to new_session_path
+      end
+    end
+
+    describe "quizzes#new" do
+      it "requires login" do
+        get :new
+        expect(response).to redirect_to new_session_path
+      end
+    end
+
+    describe "quizzes#create" do
+      it "requires login" do
+        post :create, params: { quiz: valid_attributes }
+        expect(response).to redirect_to new_session_path
+      end
+    end
+
+    describe "quizzes#show" do
+      it "requires login" do
+        get :show, params: { id: quiz.id }
+        expect(response).to redirect_to new_session_path
+      end
+    end
+
+    describe "quizzes#results" do
+      it "requires login" do
+        get :results
+        expect(response).to redirect_to new_session_path
+      end
+    end
   end
 end
 

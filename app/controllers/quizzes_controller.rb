@@ -11,7 +11,7 @@ class QuizzesController < ApplicationController
   end
 
   def create
-    @quiz = Quiz.new(quiz_params.merge(user_id: current_user.id))
+    @quiz = Quiz.new(quiz_params.merge(user: current_user))
     if @quiz.save
       redirect_to quiz_path(@quiz), notice: "Question created successfully!"
     else
