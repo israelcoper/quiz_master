@@ -1,24 +1,28 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+** System dependencies **
+- Ruby 2.3.1
+- Rails 5.0.2
+- Postgresql 9.5.4
 
-Things you may want to cover:
+** Database creation **
+- rake db:create
+- rake db:migrate
+- rake db:migrate RAILS_ENV=test
 
-* Ruby version
+** How to run the test suite **
+- rspec
 
-* System dependencies
+** How to run the app **
+- rails s
 
-* Configuration
+** _NOTE_ **
+- *Admin routes*
+  - /admin/registrations/new
+  - /admin/sessions/new
+  - /admin/questions
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- *User routes*
+  - /registrations/new
+  - /sessions/new
+  - /quizzes
